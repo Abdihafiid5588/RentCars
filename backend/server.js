@@ -19,6 +19,24 @@ mongoose.connect("mongodb://localhost:27017/rentcars", {
 // API Routes
 app.use("/api/users", userRoutes);
 
+// Boking API
+
+app.get('/api/bookings',authenticateJWT, async (req,res)=>{
+  const userId = req.user.id;
+   try{
+       const reservation = await Reservation.find({owner: userId});
+       if(reservation){
+           res.json(reservation)
+       }else{
+           res.json(null)
+       }
+   }catch(e){
+       res.json(e)
+   }
+})
+
+
+
 // Server
 app.listen(5000, () => {
   console.log("Server running on port 5000");

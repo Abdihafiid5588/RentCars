@@ -61,7 +61,7 @@ function BookingForm({ onSearch }) {
         </div>
 
         {/* Dates */}
-        <div>
+        <div >
           <label className="block mb-1 text-sm font-medium text-gray-700">
             <i className="fa fa-calendar text-blue-500 mr-1"></i> Pick-up Date
           </label>
