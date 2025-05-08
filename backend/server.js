@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
+const carRoutes = require("./routes/carRoutes");
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,8 @@ mongoose.connect("mongodb://localhost:27017/rentcars", {
 
 // API Routes
 app.use("/api/users", userRoutes);
+
+app.use("/api/cars", carRoutes);
 
 // Server
 app.listen(5000, () => {

@@ -9,6 +9,9 @@ import Login from './pages/login';
 import Register from './pages/register';
 import { Routes, Route } from 'react-router-dom';
 import BookingPage from './pages/bookingPage';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminAddCar from './components/AdminAddCar';
+import AdminManageCars from './pages/AdminManageCars';
 
 function LandingPage() {
   return (
@@ -30,6 +33,9 @@ function App() {
       <Route path="/booking" element={<BookingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/add-car" element={<AdminAddCar />} />
+      <Route path="/admin/manage-cars" element={<AdminManageCars />} />
     </Routes>
   );
 }
