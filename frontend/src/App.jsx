@@ -9,6 +9,8 @@ import Login from './pages/login';
 import Register from './pages/register';
 import { Routes, Route } from 'react-router-dom';
 import BookingPage from './pages/bookingPage';
+import Downlod from "./pages/Downlod"
+import Footer from "./pages/Footer"
 
 function LandingPage() {
   return (
@@ -19,6 +21,8 @@ function LandingPage() {
       <ClientLogos />
       <WhyChooseUs />
       <PopularRental />
+      <Downlod/>
+      <Footer/>
     </>
   );
 }
