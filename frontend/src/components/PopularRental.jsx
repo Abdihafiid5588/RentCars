@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function PopularRental(props) {
     return (
       <div className="bg-white h-full w-78 py-4 px-6 rounded-sm text-left drop-shadow-2xl shadow-gray-700">
@@ -25,9 +27,9 @@ function PopularRental(props) {
           </p>
         </div>
   
-        <button className="py-2 px-20 bg-blue-500 mt-6 rounded-full text-white font-bold">
+        <Link to="/login"><button onClick="/login" className="py-2 px-20 bg-blue-500 mt-6 rounded-full text-white font-bold">
           Rent Now
-        </button>
+        </button></Link>
       </div>
     );
   }

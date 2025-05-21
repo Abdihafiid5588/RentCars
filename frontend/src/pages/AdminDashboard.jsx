@@ -20,6 +20,19 @@ function AdminDashboard() {
           <h2 className="text-xl font-bold text-blue-500 mb-2">All Bookings</h2>
           <p>View all customer bookings</p>
         </Link>
+
+        <Link to="/admin/promote" className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl border hover:border-blue-600 transition-all">
+          <h2 className="text-xl font-bold text-blue-500 mb-2">Promote User</h2>
+          <p>Upgrade user accounts to admin status</p>
+        </Link>
+        <Link to="/admin/summary" className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl border hover:border-blue-600 transition-all">
+          <h2 className="text-xl font-bold text-blue-500 mb-2">See Summary</h2>
+          <p>Admin Summary</p>
+        </Link>
+        <Link to="/admin/payments" className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl border hover:border-blue-600 transition-all">
+          <h2 className="text-xl font-bold text-blue-500 mb-2">Admin Approval</h2>
+          <p>Admin Summary</p>
+        </Link>
       </div>
     </div>
   );

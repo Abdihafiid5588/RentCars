@@ -1,1 +1,24 @@
 @import "tailwindcss";
+@custom-variant hover (&:hover);
+
+@layer utilities {
+    @keyframes slideInRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      60% { transform: translateX(-10%); opacity: 1; }
+      100% { transform: translateX(0); }
+    }
+  
+    @keyframes carFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  
+    .animate-carSlideIn {
+      animation: slideInRight 1s ease-out forwards;
+    }
+  
+    .animate-carFloat {
+      animation: carFloat 3s ease-in-out infinite;
+    }
+  }
+  
