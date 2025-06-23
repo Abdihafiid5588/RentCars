@@ -1,56 +1,61 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGooglePlay,  } from '@fortawesome/free-brands-svg-icons';
-import {  faLocationDot, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-import Car1 from "../images/car1.png"
-import Bg from "../images/bg.png"
+import { faGooglePlay } from '@fortawesome/free-brands-svg-icons';
+import { Typewriter } from 'react-simple-typewriter';
+import Car1 from "../images/car1.png";
+
 function Hero() {
-    return <div>
-        <div className='flex justify-around py-20 relative'>
-        <div className='mr-[700px]'>
-        <h1 className='text-6xl font-bold w-[500px]'>Find, book and rent a car <span className='text-[#1572D3]'>Easily</span></h1>
-        <p className=' text-[17px] mb-8 mt-8'>Get a car wherever and whenever you <br /> need it with your IOS and Android device.</p>
-        <div className="flex gap-4">
-            <button className='bg-black py-1 px-3 rounded-sm text-white'> <h2 className='text-[8px]'>Get it on</h2><FontAwesomeIcon icon={faGooglePlay} /> Google Play</button>
-            <button className='bg-black py-1 px-3 rounded-sm text-white'> <h2 className='text-[8px]'>Get it on</h2><FontAwesomeIcon icon={faGooglePlay} /> Google Play</button>
-        </div>
+  return (
+    <section id="home" className="relative overflow-hidden mt-20">
+      {/* Top Hero Section */}
+      <div className="flex flex-col lg:flex-row justify-between items-center py-20 px-6 md:px-10 gap-12">
+        
+        {/* Left Text */}
+        <div className="max-w-xl flex-1 text-center lg:text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            Find, book and rent a car{" "}
+            <span className="text-[#1572D3] inline-block">
+              <Typewriter
+                words={['Easily', 'Perfectly', 'Quickly', 'Affordably', 'Smoothly']}
+                loop={true}
+                cursor
+                cursorStyle="|"
+                typeSpeed={100}
+                deleteSpeed={0}
+                delaySpeed={2000}
+              />
+            </span>
+          </h1>
+          <p className="text-base sm:text-lg mt-6 mb-8 text-gray-700">
+            Get a car wherever and whenever you <br className="hidden sm:block" /> need it with your iOS and Android device.
+          </p>
+
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            {[...Array(2)].map((_, index) => (
+              <button
+                key={index}
+                className="bg-black py-2 px-4 rounded-sm text-white flex items-center gap-2"
+              >
+                <div className="text-[10px] leading-tight text-left">
+                  <h2 className="text-[8px]">Get it on</h2>
+                  <p className="text-sm font-semibold">Google Play</p>
+                </div>
+                <FontAwesomeIcon icon={faGooglePlay} />
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className='absolute right-0 top-[-4]'>
-            <img src={Car1} className='w-[800px]' />
+        {/* Right Image */}
+        <div className="flex-1 w-full flex justify-center lg:justify-end animate-carSlideIn">
+          <img
+            src={Car1}
+            alt="Car"
+            className="w-[90%] max-w-[600px] h-auto object-contain hover:animate-carFloat"
+          />
         </div>
-
-      
-        </div>
-
-            
-        <div className='bg-[#E8F1FB] rounded-lg w-[1230px] h-16 ml-38 mt-32 flex gap-20'>
-        <div className='flex gap-4 items-center pl-3 py-1'>
-        <FontAwesomeIcon icon={faLocationDot} className='text-3xl text-gray-500 '/>
-        <div>
-        <h1 className='font-bold text-[17px]'>location</h1>
-        <p  className='text-gray-500 font-semibold text-[13px]'>Search your location</p>
-        </div>
-        </div>
-        <div className='flex gap-4 items-center pl-3 py-1'>
-        <FontAwesomeIcon icon={faCalendarDays} className='text-3xl  text-gray-500 '/>
-        <div>
-        <h1 className='font-bold text-[17px]'>Pickup date</h1>
-        <p  className='text-gray-500 font-semibold text-[13px]'>Search your location</p>
-        </div>
-        </div>
-        <div className='flex gap-4 items-center pl-3 py-1'>
-        <FontAwesomeIcon icon={faCalendarDays} className='text-3xl  text-gray-500 '/>
-        <div>
-        <h1 className='font-bold text-[17px]'>Return date</h1>
-        <p  className='text-gray-500 font-semibold text-[13px]'>Search your location</p>
-        </div>
-        <div>
-        <button className="bg-[#1572D3] ml-96 py-2 px-5 rounded-sm text-white font-semibold">Explore</button>
-        </div>
-        </div>
-        </div>
-
-    </div>
+      </div>
+    </section>
+  );
 }
 
-export default Hero
+export default Hero;

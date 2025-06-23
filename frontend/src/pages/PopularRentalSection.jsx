@@ -45,18 +45,23 @@ const popularCars = [
     nDoors: "2 Doors",
     price: "$2,100",
   },
-  
 ];
 
 function PopularRentalSection() {
   return (
-    <div className="text-center mt-20">
-      <div className="bg-[#E8F1FB] h-13 w-60 text-center pt-1 rounded-md text-blue-500 font-semibold font-serif text-[26px] mx-auto mb-10">
-        HOW IT WORKS
+    <div id="rental-deals"  className="text-center mt-20 px-4 sm:px-6 lg:px-10 ml-5">
+      {/* Section Title */}
+      <div className="bg-[#E8F1FB] w-fit mx-auto px-4 py-1 rounded-md mb-4">
+        <h2 className="text-blue-500 font-serif font-semibold text-base sm:text-lg md:text-xl">
+          Our Car models
+        </h2>
       </div>
-      <p className="text-2xl mb-10">Most popular cars rental deals.</p>
+      <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8">
+        Most popular cars rental deals.
+      </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10">
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {popularCars.map((car, idx) => (
           <PopularRental key={idx} {...car} />
         ))}

@@ -1,11 +1,13 @@
 const User = require("../model/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const fs = require("fs");
+const path = require("path");
 
 // Function to create JWT token
 const createToken = (user) => {
   return jwt.sign(
-    { id: user._id, email: user.email, role: user.role },
+    { id: user._id, email: user.email, role: user.role, name: user.name }, // ✅ added name here
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_EXPIRES_IN }
   );
@@ -58,3 +60,39 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 };
+
+exports.updateUserProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const { name, email } = req.body;
+
+    // Update fields
+    if (name) user.name = name;
+    if (email) user.email = email;
+
+    // Handle profile image upload
+    if (req.file) {
+      if (user.profileImage && fs.existsSync(user.profileImage)) {
+        fs.unlinkSync(user.profileImage); // delete old image
+      }
+      user.profileImage = req.file.filename;
+    }
+
+    await user.save();
+    res.json({
+      message: "Profile updated",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        profileImage: user.profileImage,
+      },
+    });
+  } catch (err) {
+    console.error("Update error:", err);
+    res.status(500).json({ message: "Update failed" });
+  }
+};
+
