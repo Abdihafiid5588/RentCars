@@ -18,7 +18,8 @@ function Register() {
       console.error("Registration Error:", err);
       alert("Registration failed");
     }
-  };
+  }
+  //h
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">

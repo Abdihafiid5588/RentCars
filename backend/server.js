@@ -23,7 +23,7 @@ require("dotenv").config();
 
 
 // Connect MongoDB
-mongoose.connect("mongodb://localhost:27017/rentcars", {
+mongoose.connect("mongodb+srv://abdihafiidmuhammad0203:7l5R0KhQc1C1Cc93@cluster0.l5lfabf.mongodb.net/rentcars", {
 
 });
 mongoose.set("strictQuery", true);
